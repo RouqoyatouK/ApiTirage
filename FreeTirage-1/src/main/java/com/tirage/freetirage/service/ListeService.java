@@ -7,7 +7,7 @@ import com.tirage.freetirage.Model.Liste;
 public interface ListeService  {
 	
 	Liste creer(Liste liste);
-	
+	Liste trouverListeParLibelle(String libelle);
 	List<Liste> lire();
 
 }

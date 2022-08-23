@@ -26,4 +26,10 @@ public class ListeServiceImpl implements ListeService {
 		return listerepo.findAll();
 	}
 
+	@Override
+	public Liste trouverListeParLibelle(String libelle) {
+		// TODO Auto-generated method stub
+		return listerepo.findByLibelle(libelle);
+	}
+
 }

@@ -94,5 +94,19 @@ public class PostulantServiceImpl implements PostulantService {
 		// TODO Auto-generated method stub
 		return postulant.save(p);
 	}
+/*
+	@Override
+	public List<Postulant> trouveridPostList(long liste_id_liste) {
+		// TODO Auto-generated method stub
+		return postulant.trouveridPostList(liste_id_liste);
+	}
+*/
+	@Override
+	public List<Postulant> TrouverParListe(Liste liste) {
+		// TODO Auto-generated method stub
+		return postulant.findByListe(liste);
+	}
+
+	
 
 }

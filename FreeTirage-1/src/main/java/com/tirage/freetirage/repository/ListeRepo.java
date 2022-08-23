@@ -6,4 +6,5 @@ import com.tirage.freetirage.Model.Liste;
 
 public interface ListeRepo extends JpaRepository<Liste, Integer> {
 
+	Liste findByLibelle(String libelle);
 }
