@@ -6,8 +6,8 @@ public interface ListeService {
     //methode permettant de creer  une liste
     Liste creer(Liste liste);
 
-    //methode permettant de recuperer une liste par son libelle
-    Liste trouverListeParLibelle(String libelle);
+    //methode(trouverListeParLibelle) permettant de recuperer une liste par son libelle
+    Liste trouverListeParLibelle(String libele);
 
 
 }

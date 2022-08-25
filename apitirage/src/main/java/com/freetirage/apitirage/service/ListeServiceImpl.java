@@ -3,12 +3,13 @@ package com.freetirage.apitirage.service;
 import com.freetirage.apitirage.model.Liste;
 import com.freetirage.apitirage.repository.ListeRepo;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
 public class ListeServiceImpl implements ListeService{
 
+    @Autowired
     ListeRepo listerepo;
 
     //creation de la liste
@@ -19,7 +20,7 @@ public class ListeServiceImpl implements ListeService{
 
     //recuperation de la liste par libelle
     @Override
-    public Liste trouverListeParLibelle(String libelle) {
-        return listerepo.findByLibelle(libelle);
+    public Liste trouverListeParLibelle(String libele) {
+        return listerepo.findByLibele(libele);
     }
 }

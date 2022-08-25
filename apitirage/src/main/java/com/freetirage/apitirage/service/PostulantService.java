@@ -11,6 +11,6 @@ public interface PostulantService {
     //methode permettant d'enregistrer un postulant
     List<Postulant> enregistrer(List<Postulant> listPost);
 
-    //methode permettant de recuperer tous les postulant d'une liste donnée
+    //methode permettant de recuperer tous les postulant d'une liste donnée par l'id
     List<Postulant> TrouveridPostList(long idListe);
 }

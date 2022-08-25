@@ -14,6 +14,7 @@ import java.util.List;
 
 public class PostulantExcelimport {
 
+    //la fonction de l'importation
     public List<Postulant> excelImport(MultipartFile file) {
 
         //definition d'une liste vide de type postulant pour stocker les postulant trié
@@ -41,12 +42,12 @@ public class PostulantExcelimport {
         //FileInputStream inputStrean = new FileInputStream(file.getInputStream());
 
             /*
-             Workbook permet de modéliser un fichier Excel
+             Workbook(classeur) permet de modéliser un fichier Excel
              Sheet(feuille) , Row(ligne)  et Cell(cellule) permettent de modeliser les éléments d'un fichier Excel
              Les classes utilisées pour le nouveau format xlsx XSSFWorkbook , XSSFSheet , XSSFRow et XSSFCell .
             * */
 
-        //ouverture du fichier excel uploader
+        //ouverture du fichier excel dans l'ensemble
 
         //Workbook workbook = new XSSFWorkbook(file.getInputStream());
         Workbook workbook = new XSSFWorkbook(file.getInputStream());
@@ -57,7 +58,7 @@ public class PostulantExcelimport {
         //on definit la liste rowIterator de type Row qui va contenir toutes les lignes du fichier
         Iterator<Row> rowIterator=firstSheet.iterator();
 
-        //on part sur la ligne suivante
+        //on saute sur la première ligne
         rowIterator.next();
 
         //on parcours les lignes de la feuille dans cette boucle, à chaque tours du boucle on part au projet suivant
@@ -130,7 +131,7 @@ public class PostulantExcelimport {
         workbook.close();
 
         //l'heure de fin de limportation
-        Long end = System.currentTimeMillis();
+        //Long end = System.currentTimeMillis();
 
         //affichage de l'heure du debut  et fin de l'importation
         //System.out.printf("Import done in %d ms\n", (end - start));

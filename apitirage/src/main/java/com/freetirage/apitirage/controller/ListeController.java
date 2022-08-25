@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/liste")
 public class ListeController {
-    ListeService listeservice;
+    /*ListeService listeservice;
 
     //methode permettant de créer une liste
     @PostMapping("/create")
-    public Liste create(@RequestBody  Liste liste){//prend une liste en format Json
+    public Liste(@RequestBody  Liste liste){//prend une liste en format Json
         return listeservice.creer(liste);//creation de la liste
-    }
+    }*/
 
 
 }
