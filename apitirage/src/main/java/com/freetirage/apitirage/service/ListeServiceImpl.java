@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ListeServiceImpl implements ListeService{
 
@@ -22,5 +24,10 @@ public class ListeServiceImpl implements ListeService{
     @Override
     public Liste trouverListeParLibelle(String libele) {
         return listerepo.findByLibele(libele);
+    }
+
+    @Override
+    public List<Liste> afficher() {
+        return listerepo.findAll();
     }
 }
