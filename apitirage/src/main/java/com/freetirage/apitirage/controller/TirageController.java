@@ -5,6 +5,7 @@ import com.freetirage.apitirage.model.Liste;
 import com.freetirage.apitirage.model.Postulant;
 import com.freetirage.apitirage.model.PostulantTrie;
 import com.freetirage.apitirage.model.Tirage;
+import com.freetirage.apitirage.repository.TirageRepo;
 import com.freetirage.apitirage.service.ListeService;
 import com.freetirage.apitirage.service.PostulantService;
 import com.freetirage.apitirage.service.PostulantTrieService;
@@ -16,15 +17,54 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/tirage")
 @AllArgsConstructor
 public class TirageController {
 
     @Autowired
     TirageService tirageService;
+    @Autowired
      ListeService listeService;
+    @Autowired
      PostulantService postulantService;
+    @Autowired
      PostulantTrieService postulantTrieService;
+    @Autowired
+    TirageRepo tirageRepo;
+
+
+
+/*fficher toute les information d'une liste
+     @GetMapping("/{idliste}")
+     public List<Liste> AfficherLibelle( @PathVariable long idliste){
+
+         return listeService.trouverListeParId(idliste);
+     }*/
+
+     //Afficher tout les tirage d'une liste
+
+    @GetMapping("tt/{idliste}")
+    public List<Tirage> trouverTiragesParIdListe(@PathVariable long idliste){
+         return tirageRepo.FindTirageByListId(idliste);
+    }
+
+
+    //Afficher les details d'un tirgae
+    @GetMapping("/{idtirage}")
+    public Tirage detailDunTirage(@PathVariable Long idtirage){
+        return tirageService.AfficherUnTirage(idtirage);
+    }
+
+    //Afficher le nombre total de tirage sur une liste
+    @GetMapping("/nbr/{idliste}")
+    public int NombreTirageUneListe(@PathVariable Long idliste){
+        return tirageRepo.LeNombreDeTirage(idliste);
+    }
+
+
+
+
 
     @PostMapping("/createTirage/{libele}/{nbre}")
     public List<PostulantTrie> create(@RequestBody Tirage tirage, @PathVariable ("libele") String libele, @PathVariable Long nbre) {

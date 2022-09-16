@@ -3,6 +3,7 @@ package com.freetirage.apitirage.controller;
 import com.freetirage.apitirage.model.Liste;
 import com.freetirage.apitirage.model.Postulant;
 import com.freetirage.apitirage.model.PostulantExcelimport;
+import com.freetirage.apitirage.repository.PostulantRepo;
 import com.freetirage.apitirage.service.ListeService;
 import com.freetirage.apitirage.service.PostulantService;
 import lombok.AllArgsConstructor;
@@ -17,17 +18,23 @@ import java.util.List;
 @RestController
 @RequestMapping("/postulant")
 @AllArgsConstructor
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PostulantController {
 @Autowired
     PostulantService postulantservice;
+@Autowired
     ListeService listeservice;
+@Autowired
+    PostulantRepo postulantrepo;
 
+
+@GetMapping("/{idliste}")
+public int AfficherNombre(@PathVariable Long idliste){
+    return postulantrepo.LeNombreDePOstulant(idliste);
+}
 
     @PostMapping("/importe/{libele}")
-
     public String importFormExcel(@Param("file") MultipartFile file, Liste liste) {
-
-
 
         //instance de la classe qui permet l'import la lecture du fichier afin de la mettre dans la table postulant
         PostulantExcelimport excelImporter = new PostulantExcelimport();

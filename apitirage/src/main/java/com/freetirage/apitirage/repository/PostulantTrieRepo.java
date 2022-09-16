@@ -29,6 +29,14 @@ public interface PostulantTrieRepo extends JpaRepository<PostulantTrie, Long> {
     //requette permettant de retourner les postulants triés lors d'un
     @Modifying
     @Transactional
-    @Query(value = "SELECT * FROM postulant_trie where idtirage_id = idtirage_id",nativeQuery = true)
-    public List<PostulantTrie> FINDALLPOSTULANTTRIEPARID(@PathVariable Long  idtirage_id);
+    @Query(value = "SELECT * FROM postulant_trie where idtirage_id = :idtirage",nativeQuery = true)
+    public List<PostulantTrie> FINDALLPOSTULANTTRIEPARID(@PathVariable Long  idtirage);
+
+
+    //le nombre de ^postulant trier
+
+    @Query(value = "select count(*) from postulant_trie where idtirage_id = :id", nativeQuery = true)
+    public int LeNombreDePostulantTrier(Long id);
+
+
 }

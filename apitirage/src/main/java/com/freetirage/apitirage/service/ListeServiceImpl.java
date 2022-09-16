@@ -26,8 +26,16 @@ public class ListeServiceImpl implements ListeService{
         return listerepo.findByLibele(libele);
     }
 
+//Afficher toute les listes
     @Override
     public List<Liste> afficher() {
         return listerepo.findAll();
     }
+
+    @Override
+    public Liste AfficherUNEListe(Long idliste) {
+        return listerepo.findById(idliste).get();
+    }
+
+
 }

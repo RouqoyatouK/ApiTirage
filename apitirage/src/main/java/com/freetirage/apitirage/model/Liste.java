@@ -1,13 +1,13 @@
 package com.freetirage.apitirage.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 //permet d'inclure les getter et setter et toString
 @Getter
@@ -24,4 +24,9 @@ public class Liste {
     private String libele;
 
     private Date date;
+
+    //Aide a recuperer l'ensemble des tirage sur une liste donner
+    @JsonIgnore
+    @OneToMany(mappedBy = "idliste")
+    List<Tirage> tirageList=new ArrayList<>();
 }

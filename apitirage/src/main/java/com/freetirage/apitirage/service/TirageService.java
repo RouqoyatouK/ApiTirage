@@ -19,4 +19,11 @@ public interface TirageService {
 
     //methode permettant de trouver un tirage par son libellet
     Tirage trouverTirageParLibelle(String libelle);
+
+    //Afficher tirage par id
+    Tirage AfficherUnTirage(Long idtirage);
+
+
+
+
 }

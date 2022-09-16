@@ -11,9 +11,15 @@ public interface ListeService {
     //methode(trouverListeParLibelle) permettant de recuperer une liste par son libelle
     Liste trouverListeParLibelle(String libele);
 
+
+
     //Afficher toute les listes
     //Liste afficher(Liste liste);
     List<Liste> afficher();
+
+    //Afficher une liste
+    Liste AfficherUNEListe(Long idliste);
+
 
 
 }

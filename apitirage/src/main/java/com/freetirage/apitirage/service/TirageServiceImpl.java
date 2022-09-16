@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-public class TirageServiceImpl implements TirageService{
+public class TirageServiceImpl implements TirageService {
 
     @Autowired
     TirageRepo tirageRepo;
@@ -35,8 +35,7 @@ public class TirageServiceImpl implements TirageService{
          * on supprimme cette valeur dans la liste à trié pour ne pas encore tombé dessus et en fin
          * on retourne la liste trié après la boucle
          * */
-        for (int i = 0; i< nbre; i++)
-        {
+        for (int i = 0; i < nbre; i++) {
             //cette variable va contenir les index choisi par random aleatoirement
             Integer index = rand.nextInt(listAtrier.size());
 
@@ -64,9 +63,16 @@ public class TirageServiceImpl implements TirageService{
 
 
     //redefinition de la methode permettant de trover un tirage par son libe
-    @Override
+   @Override
     public Tirage trouverTirageParLibelle(String libelle) {
         //retourne le tirage correspondant au libelle passé en parametre
         return tirageRepo.findByLibelle(libelle);
     }
+
+    @Override
+    public Tirage AfficherUnTirage(Long idtirage) {
+        return tirageRepo.findById(idtirage).get();
+    }
+
+
 }
