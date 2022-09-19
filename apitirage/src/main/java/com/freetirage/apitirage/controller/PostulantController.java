@@ -16,9 +16,9 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/postulant")
 @AllArgsConstructor
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PostulantController {
 @Autowired
     PostulantService postulantservice;
