@@ -40,6 +40,11 @@ public class PostulantTrieController {
         return postulanttrirepo.FINDALLPOSTULANTTRIEPARID(idtirage);
     }
 
+    @GetMapping("/liste")
+    public List<Object[]> listepostulant(){//prend une liste en format Json
+        return postulantTrieService.listepostulant();//creation de la liste
+    }
+
 
     //retourne le nombre de postulant trier sur une liste
     @GetMapping("/nbrTrier/{id}")

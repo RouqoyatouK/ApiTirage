@@ -31,4 +31,9 @@ public class PostulantTrieServiceImpl implements PostulantTrieService{
         //retour des postulant trié
         return postulantTrieRepo.FINDALLPOSTULANTTRIEPARID(idtirage_id);
     }
+
+    @Override
+    public List<Object[]> listepostulant() {
+        return postulantTrieRepo.listepostulant();
+    }
 }

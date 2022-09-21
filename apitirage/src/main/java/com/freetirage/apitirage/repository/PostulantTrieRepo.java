@@ -38,5 +38,8 @@ public interface PostulantTrieRepo extends JpaRepository<PostulantTrie, Long> {
     @Query(value = "select count(*) from postulant_trie where idtirage_id = :id", nativeQuery = true)
     public int LeNombreDePostulantTrier(Long id);
 
+    @Query(value = "select * from postulant_trie", nativeQuery = true)
+    List<Object[]> listepostulant();
+
 
 }
